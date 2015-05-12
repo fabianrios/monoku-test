@@ -21,6 +21,7 @@ angular.module('lastFmApp')
     
     var res = artistGet.query({mbid: $routeParams.id}, function () {
       $scope.artist = res.artist;
+      $scope.artists = res.artist.similar.artist;
       console.log($scope.artist);
       // $scope.artists = res.results.artistmatches.artist;
     });

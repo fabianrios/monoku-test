@@ -3,7 +3,7 @@
     <input type="search" ng-model="searchField" />
     <div class="artistas">
       <!-- {{artists}} -->
-      <ul>
+      <ul class="no-bullet">
         <li ng-repeat="artist in artists | limitTo : 15">
           <a href="#/artista/{{artist.mbid}}/view" class="th">
             <img ng-src="{{artist.image[1]['#text']}}" alt="" />
