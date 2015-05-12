@@ -1,5 +1,4 @@
 'use strict';
-$(document).foundation();
 /**
  * @ngdoc overview
  * @name lastFmApp
@@ -17,8 +16,8 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider, $stateProvider) {
-    $stateProvider
+  .config(function ($routeProvider) {
+    $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
@@ -26,6 +25,10 @@ angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
+      })
+      .when('/artista/:id/view', {
+        templateUrl: 'views/artista.html',
+        controller: 'ArtistaCtrl'
       })
       .otherwise({
         redirectTo: '/'
