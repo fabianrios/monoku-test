@@ -1,1 +1,8 @@
-<hola>hola</hola>
+<div class="row">
+  <div class="large 12 columns">
+    <img ng-src="{{artist.image[4]['#text']}}" alt="" />
+    <h1>{{artist.name}}</h1>
+    <div class="bio" ng-bind-html="artist.bio.content">
+    </div>
+  </div>
+</div>
