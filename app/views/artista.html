@@ -1,16 +1,19 @@
 <div class="row">
   <div class="large 12 columns">
-    <img ng-src="{{artist.image[4]['#text']}}" alt="" />
     <h1>{{artist.name}}</h1>
+    <img ng-src="{{artist.image[4]['#text']}}" alt="" />
+    <hr />
     <div class="bio" ng-bind-html="artist.bio.content"></div>
-    <br />
+    <br /><br />
     <div class="similar">
       <ul class="large-block-grid-4">
         <li ng-repeat="artist in artists">
-          <a href="#/artista/{{artist.mbid}}/view" class="th">
-            <img ng-src="{{artist.image[2]['#text']}}" alt="" />
-          </a>
-          <h6><a href="#/artista/{{artist.mbid}}/view">{{artist.name}}</a></h6>
+          <div class="text-center">
+            <a href="#/artista/{{artist.mbid}}/view" class="th">
+              <img ng-src="{{artist.image[2]['#text']}}" alt="" />
+            </a>
+            <h6><a href="#/artista/{{artist.mbid}}/view">{{artist.name}}</a></h6>
+          </div>
         </li>
       </ul>
     </div>
