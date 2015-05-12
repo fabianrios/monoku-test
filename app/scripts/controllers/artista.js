@@ -16,13 +16,23 @@ angular.module('lastFmApp')
           query: {method:'GET', isArray:false}
     });
   })
-  .controller('ArtistaCtrl', function ($scope, $routeParams, artistGet) {
+  .factory('artistSimilar', function($resource){
+    return $resource(BASE_URL + '&method=artist.getsimilar&mbid=:mbid', {}, {
+          query: {method:'GET', isArray:false}
+    });
+  })
+  .controller('ArtistaCtrl', function ($scope, $routeParams, artistGet, artistSimilar) {
     
     
-    var res = artistGet.query({mbid: $routeParams.id}, function () {
-      $scope.artist = res.artist;
-      $scope.artists = res.artist.similar.artist;
+    var respuesta = artistGet.query({mbid: $routeParams.id}, function () {
+      $scope.artist = respuesta.artist;
       console.log($scope.artist);
+      // $scope.artists = res.results.artistmatches.artist;
+    });
+    
+    var res = artistSimilar.query({mbid: $routeParams.id}, function () {
+      $scope.artists = res.similarartists.artist;
+      console.log($scope.artists);
       // $scope.artists = res.results.artistmatches.artist;
     });
     

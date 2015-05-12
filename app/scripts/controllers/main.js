@@ -16,6 +16,7 @@ angular.module('lastFmApp')
           query: {method:'GET', isArray:false}
     });
   })
+
   .controller('MainCtrl', function ($scope, artistSearch) {
     
 
